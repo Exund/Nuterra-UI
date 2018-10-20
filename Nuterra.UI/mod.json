@@ -1,0 +1,9 @@
+﻿{
+  "Id": "nuterra.ui",
+  "DisplayName": "Nuterra UI Library",
+  "Author": "Exund",
+  "Version": "1.0.0",
+  "Enable": true,
+  "AssemblyName": "Nuterra.UI.dll",
+  "EntryMethod": ""
+}
