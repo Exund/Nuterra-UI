@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Nuterra.UI
@@ -49,14 +50,17 @@ namespace Nuterra.UI
             }
         }
 
-        public static float NumberField(float value,float interval)
+        public static float NumberField(float value, float interval)
         {
             GUILayout.BeginHorizontal(GUILayout.Height(30));
             float.TryParse(GUILayout.TextField(value.ToString()), out float val);
             if (GUILayout.Button("+")) val += interval;
             if (GUILayout.Button("-")) val -= interval;
             GUILayout.EndHorizontal();
-            return val;
+            var rounding = 0;
+            var parts = interval.ToString().Split('.');
+            if (parts.Length > 1) rounding = parts.Last().Length;
+            return (float)Math.Round(val, rounding);
         }
 
         private static GUISkin _skin;
