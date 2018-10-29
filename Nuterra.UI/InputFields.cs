@@ -23,7 +23,9 @@ namespace Nuterra.UI
 
                 clipping = TextClipping.Clip,
                 border = new RectOffset(10, 10, 5, 5),
-                padding = new RectOffset(10, 10, 4, 4)
+                overflow = new RectOffset(0, 0, 2, 2),
+                alignment = TextAnchor.MiddleLeft,
+                padding = new RectOffset(10, 10, 0, 0)
             };
         }
     }

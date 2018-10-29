@@ -19,6 +19,8 @@ namespace Nuterra.UI
 
         public static InputFields InputFields { get; private set; }
 
+        public static Sliders Sliders { get; private set; }
+
         static Elements()
         {
             try
@@ -28,7 +30,9 @@ namespace Nuterra.UI
                 Toggle = new Toggle();
                 ScrollView = new ScrollView();
                 InputFields = new InputFields();
-            } catch(Exception e)
+                Sliders = new Sliders();
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e);
             }

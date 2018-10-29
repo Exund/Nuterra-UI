@@ -16,13 +16,19 @@ namespace Nuterra.UI
             set { _skin = value; }
         }
 
-        static NuterraGUI()
+        public static void CreateGUIObject()
+        {
+            new GameObject().AddComponent<GUIOverride>();
+        }
+
+        static void ModifyGUI(GUISkin Default)
         {
             try
             {
                 //Debug.Log(System.Reflection.Assembly.GetExecutingAssembly().Location);
-
-                Skin = GameObject.Instantiate(GUI.skin);
+                if (Skin != null)
+                    return;
+                Skin = Default;
                 Skin.window = Elements.Windows.Default;
                 Skin.button = Elements.Buttons.HUDDefault;
                 Skin.toggle = Elements.Toggle.Default;
@@ -32,21 +38,41 @@ namespace Nuterra.UI
                 Skin.horizontalScrollbar = Elements.ScrollView.Horizontal;
                 Skin.horizontalScrollbarThumb = Elements.ScrollView.ThumbHorizontal;
 
+                Skin.verticalSlider = Elements.Sliders.Vertical;
+                Skin.verticalSliderThumb = Elements.Sliders.ThumbVertical;
+                Skin.horizontalSlider = Elements.Sliders.Horizontal;
+                Skin.horizontalSliderThumb = Elements.Sliders.ThumbHorizontal;
+
                 Skin.textField = (Skin.textArea = Elements.InputFields.Default);
 
                 Skin.label.fontSize = 12;
                 Skin.label.margin = new RectOffset { top = 0, bottom = 0 };
                 Skin.label.padding = new RectOffset { top = 0, bottom = 0 };
 
-
                 var fonts = Resources.FindObjectsOfTypeAll<Font>();
                 foreach (Font font in fonts)
                 {
                     if (font.name == "Exo-Bold") Skin.font = font;
                 }
-            } catch(Exception e)
+            } catch (Exception e)
             {
                 Console.WriteLine(e);
+            }
+        }
+
+        public class GUIOverride : MonoBehaviour
+        {
+            bool destroy;
+            bool toggl;
+            void OnGUI()
+            {
+                NuterraGUI.ModifyGUI(GUI.skin);
+                GUI.Label(new Rect(0, 0, 100, 30), "Loaded GUI");
+                if (!destroy)
+                {
+                    GameObject.Destroy(this, 5f);
+                    destroy = true;
+                }
             }
         }
 

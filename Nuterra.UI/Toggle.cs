@@ -14,12 +14,31 @@ namespace Nuterra.UI
             {
                 normal =
                 {
-                    background = Elements.LoadImageFromFile("Toggle_OFF.png")
+                    background = Elements.LoadImageFromFile("Toggle_OFF.png"),
+                    textColor = new Color(0.85f,0.85f,0.85f)
                 },
                 active =
                 {
-                    background = Elements.LoadImageFromFile("Toggle_ON.png")
+                    background = Elements.LoadImageFromFile("Toggle_ON.png"),
+                    textColor = new Color(0.8f,0.95f,0.95f)
                 },
+                onNormal =
+                {
+                    background = Elements.LoadImageFromFile("Toggle_ON.png"),
+                    textColor = new Color(0.9f,0.9f,0.9f)
+                },
+                onActive =
+                {
+                    background = Elements.LoadImageFromFile("Toggle_OFF.png"),
+                    textColor = new Color(.85f,.85f,.95f)
+                },
+                onHover =
+                {
+                    textColor = new Color(.95f,1f,1f)
+                },
+                padding = new RectOffset(40,0,0,0),
+                fixedWidth = 40f,
+                fixedHeight = 20f,
             };
             Check = new GUIStyle(GUI.skin.toggle)
             {

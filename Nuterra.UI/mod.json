@@ -5,6 +5,6 @@
   "Version": "1.0.0",
   "Enable": true,
   "AssemblyName": "Nuterra.UI.dll",
-  "EntryMethod": "",
+  "EntryMethod": "Nuterra.UI.NuterraGUI.CreateGUIObject",
   "Priority":"First"
 }

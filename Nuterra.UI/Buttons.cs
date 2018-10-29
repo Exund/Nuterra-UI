@@ -33,7 +33,7 @@ namespace Nuterra.UI
                     background = Elements.LoadImageFromFile("HUD_Button_Selected.png"),
                     textColor = Color.white
                 },
-                border = new RectOffset(16, 16, 16, 16),
+                border = new RectOffset(10, 10, 10, 10),
                 padding = new RectOffset(5, 5, 5, 5),
                 alignment = TextAnchor.MiddleCenter,
                 
