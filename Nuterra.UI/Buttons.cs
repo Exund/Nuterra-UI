@@ -33,9 +33,25 @@ namespace Nuterra.UI
                     background = Elements.LoadImageFromFile("HUD_Button_Selected.png"),
                     textColor = Color.white
                 },
+                onNormal =
+                {
+                    background = Elements.LoadImageFromFile("HUD_Button_Selected.png"),
+                    textColor = Color.white
+                },
+                onHover =
+                {
+                    background = Elements.LoadImageFromFile("HUD_Button_Highlight.png"),
+                    textColor = Color.white
+                },
+                onActive =
+                {
+                    background = Elements.LoadImageFromFile("HUD_Button_BG.png"),
+                    textColor = Color.white
+                },
                 border = new RectOffset(10, 10, 10, 10),
                 padding = new RectOffset(5, 5, 5, 5),
                 alignment = TextAnchor.MiddleCenter,
+                
                 
             };
 
@@ -56,6 +72,16 @@ namespace Nuterra.UI
                     background = Elements.LoadImageFromFile("HUD_Button_RED_BG.png"),
                     textColor = Color.white
                 },
+                onNormal =
+                {
+                    background = Elements.LoadImageFromFile("HUD_Button_RED_BG.png"),
+                    textColor = Color.white
+                },
+                onHover =
+                {
+                    background = Elements.LoadImageFromFile("HUD_Button_RED_BG.png"),
+                    textColor = Color.white
+                }
             };
 
             Close = new GUIStyle
@@ -65,6 +91,10 @@ namespace Nuterra.UI
                     background = Elements.LoadImageFromFile("Button_Close.png")
                 },
                 active =
+                {
+                    background = Elements.LoadImageFromFile("Button_Close.png")
+                },
+                onNormal =
                 {
                     background = Elements.LoadImageFromFile("Button_Close.png")
                 },
@@ -85,6 +115,18 @@ namespace Nuterra.UI
                 active =
                 {
                     background = Elements.LoadImageFromFile("Button_Highlight_BG.png")
+                },
+                onNormal =
+                {
+                    background = Elements.LoadImageFromFile("Button_Highlight_BG.png")
+                },
+                onHover =
+                {
+                    background = Elements.LoadImageFromFile("Button_BG.png")
+                },
+                onActive =
+                {
+                    background = Elements.LoadImageFromFile("Button_BG.png")
                 }
             };
 
