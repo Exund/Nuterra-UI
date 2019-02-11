@@ -48,10 +48,28 @@ namespace Nuterra.UI
                 },
                 active =
                 {
-                    background = Elements.LoadImageFromFile("Check_Ticked.png")
-                },
-                border = new RectOffset(2, 2, 2, 2)
-            };
+					background = Elements.LoadImageFromFile("Check_Unticked.png")
+				},
+				hover =
+				{
+					background = Elements.LoadImageFromFile("Check_Unticked.png")
+				},
+				onNormal =
+				{
+					background = Elements.LoadImageFromFile("Check_Ticked.png")
+				},
+				onActive =
+				{
+					background = Elements.LoadImageFromFile("Check_Ticked.png")
+				},
+				onHover =
+				{
+					background = Elements.LoadImageFromFile("Check_Ticked.png")
+				},
+				border = new RectOffset(2, 2, 2, 2),
+				fixedWidth = 32f,
+				fixedHeight = 32f,
+			};
         }
     }
 }
