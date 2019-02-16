@@ -110,12 +110,12 @@ namespace Nuterra.UI
                 },
                 hover =
                 {
-                    background = Elements.LoadImageFromFile("Button_BG.png")
+					background = Elements.LoadImageFromFile("Button_Highlight_BG.png")
                 },
                 active =
                 {
-                    background = Elements.LoadImageFromFile("Button_Highlight_BG.png")
-                },
+					background = Elements.LoadImageFromFile("Button_BG.png")
+				},
                 onNormal =
                 {
                     background = Elements.LoadImageFromFile("Button_Highlight_BG.png")
@@ -126,8 +126,8 @@ namespace Nuterra.UI
                 },
                 onActive =
                 {
-                    background = Elements.LoadImageFromFile("Button_BG.png")
-                }
+					background = Elements.LoadImageFromFile("Button_Highlight_BG.png")
+				}
             };
 
             PlainGrey = new GUIStyle(Plain)

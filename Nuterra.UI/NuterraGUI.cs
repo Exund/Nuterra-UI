@@ -29,7 +29,7 @@ namespace Nuterra.UI
                 if (Skin != null)
                     return;
                 Skin = Default;
-                Skin.window = Elements.Windows.Default;
+                Skin.box = (Skin.window = Elements.Windows.Default);
                 Skin.button = Elements.Buttons.HUDDefault;
                 Skin.toggle = Elements.Toggle.Default;
 
@@ -89,6 +89,54 @@ namespace Nuterra.UI
             return (float)Math.Round(val, rounding);
         }
 
-        private static GUISkin _skin;
+		private static int popupHash = "PopupList".GetHashCode();
+		private static bool upped = false;
+
+		public static bool List(ref bool showList, ref int listEntry, GUIContent buttonContent, GUIContent[] listContent, params GUILayoutOption[] options)
+		{
+			return List(GUILayoutUtility.GetRect(buttonContent, GUI.skin.button, options), ref showList, ref listEntry, buttonContent, listContent);
+		}
+
+		public static bool List(Rect position, ref bool showList, ref int listEntry, GUIContent buttonContent, GUIContent[] listContent)
+		{
+			GUIStyle listStyle = GUI.skin.textField;
+			int controlID = GUIUtility.GetControlID(popupHash, FocusType.Passive);
+			bool done = false;
+			switch (Event.current.GetTypeForControl(controlID))
+			{
+				case EventType.MouseDown:
+					if (position.Contains(Event.current.mousePosition))
+					{
+						GUIUtility.hotControl = controlID;
+						showList = true;
+					}
+					break;
+				case EventType.MouseUp:
+					if (showList && upped) done = true;
+					upped = true;
+					break;
+			}
+
+			GUI.Label(position, buttonContent, GUI.skin.button);
+			if (showList)
+			{
+				Rect listRect = new Rect(position.x, position.y, position.width, listStyle.CalcHeight(listContent[0], 1.0f) * listContent.Length);
+				var depth = GUI.depth;
+				GUI.depth = 0;
+				GUI.Box(listRect, "", listStyle);
+				listEntry = GUI.SelectionGrid(listRect, listEntry, listContent, 1, listStyle);
+				GUI.depth = depth;
+			}
+			if (done)
+			{
+				upped = false;
+				showList = false;
+			}
+			return done;
+		}
+
+
+
+		private static GUISkin _skin;
     }
 }
