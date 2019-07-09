@@ -29,7 +29,7 @@ namespace Nuterra.UI
                 if (Skin != null)
                     return;
                 Skin = Default;
-                Skin.box = (Skin.window = Elements.Windows.Default);
+                Skin.window = Elements.Windows.Default;
                 Skin.button = Elements.Buttons.HUDDefault;
                 Skin.toggle = Elements.Toggle.Default;
 
@@ -43,7 +43,7 @@ namespace Nuterra.UI
                 Skin.horizontalSlider = Elements.Sliders.Horizontal;
                 Skin.horizontalSliderThumb = Elements.Sliders.ThumbHorizontal;
 
-                Skin.textField = (Skin.textArea = Elements.InputFields.Default);
+				Skin.box = (Skin.textField = (Skin.textArea = Elements.InputFields.Default));
 
                 Skin.label.fontSize = 12;
                 Skin.label.margin = new RectOffset { top = 0, bottom = 0 };

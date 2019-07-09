@@ -59,7 +59,9 @@ namespace Nuterra.UI
             {
                 Texture2D texture2D2 = new Texture2D(0, 0);
                 string location = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                location = location.Remove(location.LastIndexOf("\\"));
+				var index = location.LastIndexOf("\\");
+				if(index == -1) index = location.LastIndexOf("/");
+				location = location.Remove(index);
                 texture2D2.LoadImage(File.ReadAllBytes(Path.Combine(location+"/UI", name)));
                 loadedTextures.Add(name, texture2D2);
                 result = texture2D2;
